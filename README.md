@@ -1,50 +1,96 @@
-# Welcome to your Expo app 👋
+# Quick-Order
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A pharmacy quick order mobile application built with React Native, Expo, and Redux Toolkit.
 
-## Get started
+## Features
 
-1. Install dependencies
+- 📦 Product list with lazy loading
+- 🔍 Search and filter products by name and category
+- 🛒 Quick order cart with quantity management
+- 💊 Prescription product highlighting
+- 📊 Order summary with totals
+- 🎨 Modern UI with SafeArea support
 
-   ```bash
-   npm install
-   ```
+## Tech Stack
 
-2. Start the app
+- **React Native** with **Expo Router**
+- **Redux Toolkit** for state management
+- **TypeScript** for type safety
+- **React Native Safe Area Context** for proper screen boundaries
 
-   ```bash
-   npx expo start
-   ```
+## Project Structure
 
-In the output, you'll find options to open the app in a
+```
+app/
+  ├── _layout.tsx          # Root layout with Redux Provider
+  ├── index.tsx            # Root route (/)
+  └── products/
+      ├── index.tsx        # Products screen
+      └── index.styles.ts  # Products styles
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+components/
+  ├── ProductItem.tsx
+  ├── ProductItem.styles.ts
+  ├── QuickOrderSummary.tsx
+  └── QuickOrderSummary.styles.ts
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+store/
+  ├── index.ts             # Redux store
+  ├── hooks.ts             # Typed hooks
+  ├── types.ts             # TypeScript types
+  └── slices/
+      ├── productsSlice.ts
+      └── cartSlice.ts
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Getting Started
 
-## Learn more
+### Prerequisites
 
-To learn more about developing your project with Expo, look at the following resources:
+- Node.js 20+ (see `.nvmrc`)
+- npm or yarn
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Installation
 
-## Join the community
+1. Install dependencies:
 
-Join our community of developers creating universal apps.
+```bash
+npm install
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+2. Start the development server:
+
+```bash
+npm start
+```
+
+3. Run on your preferred platform:
+
+```bash
+# iOS
+npm run ios
+
+# Android
+npm run android
+
+# Web
+npm run web
+```
+
+## Usage
+
+1. View the product list
+2. Search products by name
+3. Filter by category (All, Pain Relief, Antibiotic, Supplement, Allergy)
+4. Add/remove products using +/- buttons or direct quantity input
+5. View order summary at the bottom
+
+## Requirements
+
+- Quantity limit: 0-99 units per product
+- Prescription products are marked with "Rx" badge
+- Vietnamese currency (VND) formatting
+
+## License
+
+MIT
